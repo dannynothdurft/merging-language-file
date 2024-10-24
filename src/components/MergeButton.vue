@@ -33,7 +33,6 @@ interface JsonObject {
   [key: string]: JsonValue
 }
 
-/*
 const mergedJsons = (
   defaultJson: JsonObject,
   mergedJson: JsonObject,
@@ -52,41 +51,10 @@ const mergedJsons = (
             defaultObj[key] as JsonObject,
             mergedObj[key] as JsonObject,
           )
+        } else if (mergedObj.hasOwnProperty(key)) {
+          result[key] = mergedObj[key] !== undefined ? mergedObj[key] : ''
         } else {
-          result[key] = mergedObj.hasOwnProperty(key) ? mergedObj[key] : ''
-        }
-      }
-    }
-
-    return result
-  }
-
-  return merge(defaultJson, mergedJson)
-}
-*/
-
-const mergedJsons = (
-  defaultJson: JsonObject,
-  mergedJson: JsonObject,
-): JsonObject => {
-  const merge = (defaultObj: JsonObject, mergedObj: JsonObject): JsonObject => {
-    const result: JsonObject = {}
-
-    for (const key in defaultObj) {
-      if (defaultObj.hasOwnProperty(key)) {
-        if (
-          mergedObj.hasOwnProperty(key) &&
-          typeof mergedObj[key] === 'object' &&
-          mergedObj[key] !== null
-        ) {
-          // Rekursiver Aufruf für verschachtelte Objekte
-          result[key] = merge(
-            defaultObj[key] as JsonObject,
-            mergedObj[key] as JsonObject,
-          )
-        } else {
-          // Wenn der Key in mergedJson nicht vorhanden ist, nimm den Wert aus defaultJson
-          result[key] = ''
+          result[key] = defaultObj[key]
         }
       }
     }

@@ -84,15 +84,11 @@ const mergedJsons = (
             defaultObj[key] as JsonObject,
             mergedObj[key] as JsonObject,
           )
-        } else if (
-          mergedObj.hasOwnProperty(key) &&
-          mergedObj[key] !== '' &&
-          mergedObj[key] !== undefined
-        ) {
-          // Übernehme den Wert aus mergedJson, wenn er vorhanden und nicht leer ist
-          result[key] = mergedObj[key]
+        } else if (mergedObj.hasOwnProperty(key)) {
+          // Wenn der Key in mergedJson vorhanden ist, egal ob leer oder nicht
+          result[key] = mergedObj[key] !== undefined ? mergedObj[key] : ''
         } else {
-          // Übernehme den Wert aus defaultJson, wenn der Wert aus mergedJson leer ist
+          // Wenn der Key in mergedJson nicht vorhanden ist, nimm den Wert aus defaultJson
           result[key] = defaultObj[key]
         }
       }

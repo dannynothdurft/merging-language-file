@@ -63,7 +63,7 @@ const mergedJsons = (
 
   return merge(defaultJson, mergedJson)
 }
-  */
+*/
 
 const mergedJsons = (
   defaultJson: JsonObject,

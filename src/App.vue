@@ -8,8 +8,9 @@
         >
         <UploadFile file="merged">Select merged file</UploadFile>
       </div>
-      <div>
+      <div class="input-view-container">
         <MergeButton />
+        <NewStartButton />
       </div>
     </div>
     <FooterCP />
@@ -21,6 +22,7 @@ import HeaderCP from './components/HeaderCP.vue'
 import FooterCP from './components/FooterCP.vue'
 import UploadFile from './components/UploadFile.vue'
 import MergeButton from './components/MergeButton.vue'
+import NewStartButton from './components/NewStartButton.vue'
 </script>
 
 <style scoped>

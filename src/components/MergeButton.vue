@@ -10,7 +10,7 @@
     <IconDownload />
     <p>Jetzt Downloaden</p>
   </button>
-  <div v-if="status === 'final'">
+  <div v-if="status === 'final'" class="finish">
     <p>Download finish</p>
   </div>
 </template>
@@ -155,9 +155,13 @@ button:active p {
 }
 
 .loading-spinner {
-  margin-top: 15px;
   border-radius: 50%; /* Rundes Element */
   animation: spin 1s linear infinite; /* Anwendung der Animation */
+}
+
+.finish {
+  display: flex;
+  align-items: center;
 }
 
 @keyframes spin {
